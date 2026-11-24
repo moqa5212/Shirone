@@ -1,10 +1,8 @@
 ---
 title: Hexo 添加独立网页
 published: 2026-08-20
-tags:
-  - Hexo
-  - 博客配置
 
+tags: [Hexo, Butterfly]
 category: 教程
 
 abbrlink: dccdbb56
