@@ -39,6 +39,7 @@ import { remarkMarker } from "../plugins/markdown/remark-marker.mjs";
 import { remarkOptionGroups } from "../plugins/markdown/remark-option-groups.mjs";
 import { remarkRestoreBareDirectives } from "../plugins/markdown/remark-restore-bare-directives.mjs";
 import { remarkYouTube } from "../plugins/markdown/remark-youtube.mjs";
+import { rehypeAlbumImages } from "../plugins/rehype-album-images.mjs";
 import { AcFunComponent } from "../plugins/rehype-component-acfun.mjs";
 import { AdmonitionComponent } from "../plugins/rehype-component-admonition.mjs";
 import { ArtPlayerComponent } from "../plugins/rehype-component-artplayer.mjs";
@@ -176,6 +177,7 @@ export const siteRehypePlugins = [
 			noReferrerDomains: siteConfig.imageOptimization?.noReferrerDomains ?? [],
 		},
 	],
+	rehypeAlbumImages,
 	rehypeResponsiveTables,
 	rehypeMermaidFallback,
 ];

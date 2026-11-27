@@ -132,6 +132,13 @@ export const id: Translation = {
 	[Key.albumsCounts]: "album",
 	[Key.albumsBack]: "Kembali ke album",
 	[Key.albumsPhotos]: "foto",
+	[Key.albumLife]: "Kehidupan",
+	[Key.albumLifeBanner]:
+		"Foto yang dikumpulkan otomatis dari artikel kehidupan, perjalanan, dan fotografi.",
+	[Key.albumsAllPhotos]: "Semua foto",
+	[Key.albumsTimeline]: "Linimasa",
+	[Key.albumsRandom]: "Acak",
+	[Key.albumsUndated]: "Tanpa tanggal",
 	[Key.albumPasswordTitle]: "Album ini dilindungi",
 	[Key.albumPasswordDescription]: "Masukkan kata sandi untuk melihat fotonya.",
 	[Key.albumPasswordLabel]: "Kata sandi",

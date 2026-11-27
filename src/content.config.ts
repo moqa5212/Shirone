@@ -17,6 +17,24 @@ const postsCollection = defineCollection({
 		image: z.string().optional().default(""),
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
+		/** Include this post in the generated Life album when true; exclude when false. */
+		gallery: z.boolean().optional(),
+		/** City-level location inherited by body images without an explicit override. */
+		location: z.string().optional().default(""),
+		/** Optional per-image Life album metadata, matched by normalized source path. */
+		galleryPhotos: z
+			.array(
+				z.object({
+					src: z.string(),
+					title: z.string().optional(),
+					location: z.string().optional(),
+					takenAt: z.coerce.date().optional(),
+					tags: z.array(z.string()).optional().default([]),
+					exclude: z.boolean().optional().default(false),
+				}),
+			)
+			.optional()
+			.default([]),
 		/** 所属系列 slug（空 = 不属于任何系列；单归属；落库前统一 trim） */
 		series: z
 			.string()

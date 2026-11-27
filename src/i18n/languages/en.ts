@@ -129,6 +129,13 @@ export const en: Translation = {
 	[Key.albumsCounts]: "albums",
 	[Key.albumsBack]: "Back to albums",
 	[Key.albumsPhotos]: "photos",
+	[Key.albumLife]: "Life",
+	[Key.albumLifeBanner]:
+		"Photos collected automatically from life, travel, and photography posts.",
+	[Key.albumsAllPhotos]: "All photos",
+	[Key.albumsTimeline]: "Timeline",
+	[Key.albumsRandom]: "Shuffle",
+	[Key.albumsUndated]: "Undated",
 	[Key.albumPasswordTitle]: "This album is protected",
 	[Key.albumPasswordDescription]: "Enter the password to view its photos.",
 	[Key.albumPasswordLabel]: "Password",

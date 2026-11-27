@@ -121,6 +121,13 @@ export const th: Translation = {
 	[Key.albumsCounts]: "อัลบั้ม",
 	[Key.albumsBack]: "กลับไปที่อัลบั้ม",
 	[Key.albumsPhotos]: "รูปภาพ",
+	[Key.albumLife]: "ชีวิต",
+	[Key.albumLifeBanner]:
+		"รูปภาพที่รวบรวมอัตโนมัติจากบทความชีวิต การเดินทาง และการถ่ายภาพ",
+	[Key.albumsAllPhotos]: "รูปภาพทั้งหมด",
+	[Key.albumsTimeline]: "ไทม์ไลน์",
+	[Key.albumsRandom]: "สุ่ม",
+	[Key.albumsUndated]: "ไม่มีวันที่",
 	[Key.albumPasswordTitle]: "อัลบั้มนี้ได้รับการป้องกัน",
 	[Key.albumPasswordDescription]: "ป้อนรหัสผ่านเพื่อดูรูปภาพ",
 	[Key.albumPasswordLabel]: "รหัสผ่าน",

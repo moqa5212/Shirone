@@ -15,6 +15,7 @@ export type AlbumPhoto = {
 	camera?: string;
 	lens?: string;
 	settings?: string;
+	postUrl?: string;
 };
 
 export type AlbumGroup = {

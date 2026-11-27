@@ -131,6 +131,13 @@ export const vi: Translation = {
 	[Key.albumsCounts]: "album",
 	[Key.albumsBack]: "Quay lại album",
 	[Key.albumsPhotos]: "ảnh",
+	[Key.albumLife]: "Đời sống",
+	[Key.albumLifeBanner]:
+		"Ảnh được tự động tổng hợp từ các bài viết về đời sống, du lịch và nhiếp ảnh.",
+	[Key.albumsAllPhotos]: "Tất cả ảnh",
+	[Key.albumsTimeline]: "Dòng thời gian",
+	[Key.albumsRandom]: "Ngẫu nhiên",
+	[Key.albumsUndated]: "Không có ngày",
 	[Key.albumPasswordTitle]: "Album này được bảo vệ",
 	[Key.albumPasswordDescription]: "Nhập mật khẩu để xem ảnh.",
 	[Key.albumPasswordLabel]: "Mật khẩu",

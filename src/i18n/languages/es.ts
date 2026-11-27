@@ -130,6 +130,13 @@ export const es: Translation = {
 	[Key.albumsCounts]: "álbumes",
 	[Key.albumsBack]: "Volver a álbumes",
 	[Key.albumsPhotos]: "fotos",
+	[Key.albumLife]: "Vida",
+	[Key.albumLifeBanner]:
+		"Fotos recopiladas automáticamente de artículos de vida, viajes y fotografía.",
+	[Key.albumsAllPhotos]: "Todas las fotos",
+	[Key.albumsTimeline]: "Cronología",
+	[Key.albumsRandom]: "Aleatorio",
+	[Key.albumsUndated]: "Sin fecha",
 	[Key.albumPasswordTitle]: "Este álbum está protegido",
 	[Key.albumPasswordDescription]: "Introduce la contraseña para ver sus fotos.",
 	[Key.albumPasswordLabel]: "Contraseña",

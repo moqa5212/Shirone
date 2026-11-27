@@ -7,7 +7,9 @@ import { expect, type Page, test } from "@playwright/test";
  */
 async function mockRemoteAlbumImages(page: Page) {
 	await page.route("https://picsum.photos/**", (route) => {
-		const match = /\/(\d+)\/(\d+)$/.exec(new URL(route.request().url()).pathname);
+		const match = /\/(\d+)\/(\d+)$/.exec(
+			new URL(route.request().url()).pathname,
+		);
 		const width = Number(match?.[1] ?? 800);
 		const height = Number(match?.[2] ?? 600);
 		return route.fulfill({
@@ -26,6 +28,11 @@ test.describe("相册页响应式滚动", () => {
 		await page.setViewportSize({ width: 390, height: 844 });
 		await page.goto("/albums/AcgExample/", { waitUntil: "networkidle" });
 		await expect(page.locator(".album-gallery__item").first()).toBeVisible();
+		await expect(page.locator(".album-gallery__toolbar")).toBeVisible();
+		await expect(page.locator(".album-gallery__name").first()).toBeVisible();
+		await expect(page.locator(".album-gallery__date").first()).toHaveText(
+			/^\d{4}\.\d{2}\.\d{2}$/,
+		);
 
 		await page.setViewportSize({ width: 1440, height: 900 });
 		await expect
@@ -50,6 +57,46 @@ test.describe("相册页响应式滚动", () => {
 	});
 });
 
+test.describe("Life 生活照片集", () => {
+	test("作为普通相册展示，并提供筛选与时间线", async ({ page }) => {
+		await page.goto("/albums/", { waitUntil: "networkidle" });
+
+		const lifeCard = page.locator(".album-card").filter({
+			has: page.getByRole("heading", { name: "生活照片" }),
+		});
+		await expect(lifeCard).toBeVisible();
+		await lifeCard.getByRole("link").click();
+
+		await expect(page).toHaveURL(/\/albums\/life\/$/);
+		await expect(page.getByRole("heading", { name: "生活照片" })).toBeVisible();
+		await expect(page.locator(".album-gallery__item").first()).toBeVisible();
+		await expect(page.locator(".album-gallery__toolbar")).toBeVisible();
+		await expect(page.locator(".album-gallery__meta").first()).toBeVisible();
+
+		const toolbarBox = await page
+			.locator(".album-gallery__toolbar")
+			.boundingBox();
+		const galleryBox = await page.locator(".album-gallery").boundingBox();
+		expect(toolbarBox?.y ?? Number.POSITIVE_INFINITY).toBeLessThan(
+			galleryBox?.y ?? 0,
+		);
+
+		const photoCount = await page.locator(".album-gallery__item").count();
+		const timeline = page.getByRole("button", { name: "时间线" });
+		await timeline.click();
+		await expect(timeline).toHaveAttribute("aria-pressed", "true");
+		await expect(page.locator(".album-gallery__timeline")).toBeVisible();
+		await expect(page.locator(".album-gallery__month").first()).toBeVisible();
+		await expect(page.locator(".album-gallery__month-label").first()).toHaveText(
+			/2026/,
+		);
+		await expect(page.locator(".album-gallery__item")).toHaveCount(photoCount);
+		await timeline.click();
+		await expect(timeline).toHaveAttribute("aria-pressed", "false");
+		await expect(page.locator(".album-gallery__timeline")).toBeHidden();
+	});
+});
+
 test.describe("受保护相册", () => {
 	test("提供完整的密码输入与解锁反馈", async ({ page }) => {
 		// The gate renders before its media; waiting for network idle would make
@@ -58,12 +105,12 @@ test.describe("受保护相册", () => {
 			waitUntil: "domcontentloaded",
 		});
 
-		const input = page.getByRole("textbox", { name: "Password" });
-		const submit = page.getByRole("button", { name: "Unlock album" });
-		const visibility = page.getByRole("button", { name: "Show password" });
+		const input = page.getByRole("textbox", { name: "密码" });
+		const submit = page.getByRole("button", { name: "解锁相册" });
+		const visibility = page.getByRole("button", { name: "显示密码" });
 
 		await expect(
-			page.getByRole("heading", { name: "This album is protected" }),
+			page.getByRole("heading", { name: "这是一个受保护相册" }),
 		).toBeVisible();
 		await expect(page.getByText("Six digits", { exact: true })).toBeVisible();
 		await expect(input).toHaveAttribute("type", "password");
@@ -72,22 +119,22 @@ test.describe("受保护相册", () => {
 		await visibility.click();
 		await expect(input).toHaveAttribute("type", "text");
 		await expect(
-			page.getByRole("button", { name: "Hide password" }),
+			page.getByRole("button", { name: "隐藏密码" }),
 		).toBeVisible();
 
 		await submit.click();
 		await expect(
-			page.getByText("Enter a password", { exact: true }),
+			page.getByText("请输入密码", { exact: true }),
 		).toBeVisible();
 		await expect(input).toHaveAttribute("aria-invalid", "true");
 
 		await input.fill("000000");
 		await expect(
-			page.getByText("Enter a password", { exact: true }),
+			page.getByText("请输入密码", { exact: true }),
 		).toBeHidden();
 		await submit.click();
 		await expect(
-			page.getByText("That password could not unlock this album", {
+			page.getByText("密码无法解锁这个相册", {
 				exact: true,
 			}),
 		).toBeVisible();

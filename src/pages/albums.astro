@@ -2,6 +2,7 @@
 import AlbumSection from "@components/organisms/AlbumSection.svelte";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { collectLifeAlbum, mergeAlbumsWithLife } from "@utils/album-life";
 import { scanVisibleAlbums, toAlbumIndexItem } from "@utils/album-scanner";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { albumsConfig } from "@/config/albumsConfig";
@@ -16,7 +17,18 @@ const pageDescription = resolveI18nText(
 	I18nKey.albumsBanner,
 );
 
-const albums = scanVisibleAlbums().map(toAlbumIndexItem);
+const lifeAlbum = albumsConfig.life.enable
+	? await collectLifeAlbum({
+			title: resolveI18nText(albumsConfig.life.title, I18nKey.albumLife),
+			description: resolveI18nText(
+				albumsConfig.life.description,
+				I18nKey.albumLifeBanner,
+			),
+		})
+	: undefined;
+const albums = mergeAlbumsWithLife(scanVisibleAlbums(), lifeAlbum).map(
+	toAlbumIndexItem,
+);
 ---
 
 <MainGridLayout title={pageTitle} description={pageDescription} page="albums">

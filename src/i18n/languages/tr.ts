@@ -130,6 +130,13 @@ export const tr: Translation = {
 	[Key.albumsCounts]: "albüm",
 	[Key.albumsBack]: "Albümlere dön",
 	[Key.albumsPhotos]: "fotoğraf",
+	[Key.albumLife]: "Yaşam",
+	[Key.albumLifeBanner]:
+		"Yaşam, seyahat ve fotoğraf yazılarından otomatik toplanan fotoğraflar.",
+	[Key.albumsAllPhotos]: "Tüm fotoğraflar",
+	[Key.albumsTimeline]: "Zaman Çizelgesi",
+	[Key.albumsRandom]: "Rastgele",
+	[Key.albumsUndated]: "Tarihsiz",
 	[Key.albumPasswordTitle]: "Bu albüm korumalı",
 	[Key.albumPasswordDescription]: "Fotoğrafları görmek için parolayı girin.",
 	[Key.albumPasswordLabel]: "Parola",

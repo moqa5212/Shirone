@@ -1,9 +1,9 @@
 ---
 title: "Image Gallery Grid: Syntax and Complete Examples"
-published: 2026-07-13
+published: 2026-11-13
 description: "A complete guide to image gallery grid syntax, parameters, cropping, responsive behavior, captions, and lightbox navigation."
-tags: [Markdown, Gallery, Image Grid, Demo]
-category: "Examples"
+tags: [Markdown, Gallery, Image Grid, Demo, 生活, 摄影]
+category: "生活"
 draft: false
 ---
 

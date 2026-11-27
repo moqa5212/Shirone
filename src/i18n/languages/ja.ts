@@ -126,6 +126,12 @@ export const ja: Translation = {
 	[Key.albumsCounts]: "個のアルバム",
 	[Key.albumsBack]: "アルバムに戻る",
 	[Key.albumsPhotos]: "枚",
+	[Key.albumLife]: "ライフフォト",
+	[Key.albumLifeBanner]: "生活・旅行・写真の記事から自動で集めた写真。",
+	[Key.albumsAllPhotos]: "すべての写真",
+	[Key.albumsTimeline]: "タイムライン",
+	[Key.albumsRandom]: "ランダム",
+	[Key.albumsUndated]: "日付なし",
 	[Key.albumPasswordTitle]: "このアルバムは保護されています",
 	[Key.albumPasswordDescription]:
 		"写真を見るにはパスワードを入力してください。",

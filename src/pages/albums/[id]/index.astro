@@ -6,14 +6,26 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { findAlbum, scanAllAlbums } from "@utils/album-scanner";
+import { collectLifeAlbum, mergeAlbumsWithLife } from "@utils/album-life";
+import { scanAllAlbums } from "@utils/album-scanner";
+import { resolveI18nText } from "@utils/i18n-utils";
 import { encryptProtectedContent } from "@utils/password-protection";
 import { url } from "@utils/url-utils";
+import { albumsConfig } from "@/config/albumsConfig";
 import type { AlbumGroup } from "@/types/album";
 import type { ProtectedPayload } from "@/types/protectedContent";
 
-export function getStaticPaths() {
-	return scanAllAlbums().map((album) => ({
+export async function getStaticPaths() {
+	const lifeAlbum = albumsConfig.life.enable
+		? await collectLifeAlbum({
+				title: resolveI18nText(albumsConfig.life.title, I18nKey.albumLife),
+				description: resolveI18nText(
+					albumsConfig.life.description,
+					I18nKey.albumLifeBanner,
+				),
+			})
+		: undefined;
+	return mergeAlbumsWithLife(scanAllAlbums(), lifeAlbum).map((album) => ({
 		params: { id: album.id },
 		props: { album },
 	}));
@@ -24,7 +36,7 @@ interface Props {
 }
 
 const { album } = Astro.props as Props;
-const resolvedAlbum = album ?? findAlbum(Astro.params.id ?? "");
+const resolvedAlbum = album;
 if (!resolvedAlbum) return Astro.redirect(url("/404/"));
 
 const scope = `album:${resolvedAlbum.id}`;
@@ -47,13 +59,19 @@ if (resolvedAlbum.password) {
 >
 		<section class="album-detail">
 		<div class="album-detail__hero">
-			<img
-				src={resolvedAlbum.cover ? url(resolvedAlbum.cover) : ""}
-				alt={resolvedAlbum.title}
-				loading="eager"
-				decoding="async"
-				referrerpolicy="no-referrer"
-			/>
+			{resolvedAlbum.cover ? (
+				<img
+					src={url(resolvedAlbum.cover)}
+					alt={resolvedAlbum.title}
+					loading="eager"
+					decoding="async"
+					referrerpolicy="no-referrer"
+				/>
+			) : (
+				<div class="album-detail__hero-fallback" aria-hidden="true">
+					<Icon icon="material-symbols:photo-library-outline-rounded" />
+				</div>
+			)}
 			<a class="album-detail__back" href={url("/albums/")}>
 				<Icon icon="material-symbols:arrow-back-rounded" aria-hidden="true" />
 				<span>{i18n(I18nKey.albumsBack)}</span>
@@ -152,6 +170,13 @@ if (resolvedAlbum.password) {
 				height: 100%
 				object-fit: cover
 				filter: saturate(0.9)
+		&__hero-fallback
+			position: absolute
+			inset: 0
+			display: grid
+			place-items: center
+			color: var(--on-surface-variant)
+			font-size: 4rem
 		&__hero::after
 			position: absolute
 			inset: 0
