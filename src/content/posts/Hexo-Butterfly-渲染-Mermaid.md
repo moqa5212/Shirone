@@ -1,10 +1,11 @@
 ---
 title: 在 Hexo + Butterfly 中渲染 Mermaid 图表
-published: 2026-08-20
+published: 2026-10-18
 
 tags: [Hexo, Butterfly]
-
 category: 教程
+series: "hexo-guide"
+seriesOrder: 5
 
 cover: https://images.unsplash.com/photo-1461749280684-dccba630e2f6
 abbrlink: 4111567420

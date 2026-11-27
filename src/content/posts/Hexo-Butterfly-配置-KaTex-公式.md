@@ -1,10 +1,11 @@
 ---
 title: Hexo Butterfly 配置 KaTex 公式
-published: 2026-08-20
+published: 2026-06-18
 
 tags: [Hexo, Butterfly]
-
 category: 教程
+series: "hexo-guide"
+seriesOrder: 4
 
 abbrlink: f1f07210
 date: 2026-06-15 23:53:29

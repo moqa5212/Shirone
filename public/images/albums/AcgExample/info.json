@@ -3,7 +3,7 @@
   "description": "收藏自网络的壁纸集，展示了不同风格和主题的图片。",
   "date": "2026-11-01",
   "location": "Local archive",
-  "tags": ["local", "webp", "example"],
+  "tags": ["wallpaper", "collection", "images"],
   "layout": "masonry",
   "columns": 3,
   "hidden": false

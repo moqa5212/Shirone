@@ -4,6 +4,7 @@
   "description": "家庭和个人的私人相册，包含了珍贵的回忆和照片。",
   "date": "2025-08-28",
   "location": "Private route",
+  "tags": ["family", "personal", "private"],
   "layout": "masonry",
   "columns": 3,
   "password": "486597",

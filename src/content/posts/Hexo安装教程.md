@@ -1,10 +1,11 @@
 ---
 title: Hexo个人网站搭建教程
-published: 2026-08-20
+published: 2026-05-31
 
 tags: [Hexo, Butterfly]
-
 category: 教程
+series: "hexo-guide"
+seriesOrder: 1
 
 cover: 'https://cdn.pixabay.com/photo/2025/05/25/23/59/girl-9622109_1280.png'
 abbrlink: 62840

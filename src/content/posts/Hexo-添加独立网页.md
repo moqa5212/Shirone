@@ -1,9 +1,11 @@
 ---
 title: Hexo 添加独立网页
-published: 2026-08-20
+published: 2026-06-01
 
 tags: [Hexo, Butterfly]
 category: 教程
+series: "hexo-guide"
+seriesOrder: 2
 
 abbrlink: dccdbb56
 date: 2026-06-16 20:54:28

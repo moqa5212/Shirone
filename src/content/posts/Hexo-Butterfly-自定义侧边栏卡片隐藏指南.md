@@ -1,12 +1,13 @@
 ---
 title: Hexo Butterfly 自定义侧边栏卡片隐藏指南
-published: 2026-08-20
+published: 2026-06-16
 
 tags:
   - Hexo
   - Butterfly
-  - 博客配置
 category: 教程
+series: "hexo-guide"
+seriesOrder: 3
 
 abbrlink: 358601f4
 date: 2026-06-16 20:21:13
