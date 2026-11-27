@@ -134,7 +134,7 @@ export const id: Translation = {
 	[Key.albumsPhotos]: "foto",
 	[Key.albumLife]: "Kehidupan",
 	[Key.albumLifeBanner]:
-		"Foto yang dikumpulkan otomatis dari artikel kehidupan, perjalanan, dan fotografi.",
+		"Foto yang dikumpulkan otomatis dari artikel dan momen kehidupan, perjalanan, serta fotografi.",
 	[Key.albumsAllPhotos]: "Semua foto",
 	[Key.albumsTimeline]: "Linimasa",
 	[Key.albumsRandom]: "Acak",

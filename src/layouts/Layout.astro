@@ -266,6 +266,12 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 			top: 5.5rem;
 			transition: top var(--m3e-duration-long) var(--m3e-easing-standard);
 		}
+		#main-grid[data-sidebar-layout="single"] {
+			--page-search-max-width: 56rem;
+		}
+		#main-grid[data-sidebar-layout="dual"] {
+			--page-search-max-width: 48rem;
+		}
 		body[data-banner-layout="banner"] #main-layout { top: var(--banner-content-top); }
 		body[data-banner-layout="banner"] #top-row { height: calc(var(--banner-stage-height) - 4.5rem); }
 	#navbar.navbar-hidden { pointer-events: none; }

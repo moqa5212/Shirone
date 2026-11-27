@@ -128,7 +128,7 @@ export const ko: Translation = {
 	[Key.albumsBack]: "앨범으로 돌아가기",
 	[Key.albumsPhotos]: "개 사진",
 	[Key.albumLife]: "라이프 포토",
-	[Key.albumLifeBanner]: "생활, 여행, 사진 글에서 자동으로 모은 사진.",
+	[Key.albumLifeBanner]: "생활, 여행, 사진 글과 모멘트에서 자동으로 모은 사진.",
 	[Key.albumsAllPhotos]: "모든 사진",
 	[Key.albumsTimeline]: "타임라인",
 	[Key.albumsRandom]: "무작위",

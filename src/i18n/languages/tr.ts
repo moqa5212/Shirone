@@ -132,7 +132,7 @@ export const tr: Translation = {
 	[Key.albumsPhotos]: "fotoğraf",
 	[Key.albumLife]: "Yaşam",
 	[Key.albumLifeBanner]:
-		"Yaşam, seyahat ve fotoğraf yazılarından otomatik toplanan fotoğraflar.",
+		"Yaşam, seyahat ve fotoğraf yazılarından ve anlardan otomatik toplanan fotoğraflar.",
 	[Key.albumsAllPhotos]: "Tüm fotoğraflar",
 	[Key.albumsTimeline]: "Zaman Çizelgesi",
 	[Key.albumsRandom]: "Rastgele",

@@ -7,19 +7,21 @@ import type { ProjectItem } from "@/types/projectsConfig";
 export const projectsData: ProjectItem[] = [
 	{
 		key: "shirone",
-		title: "Shirone",
+		title: "EiraSpace Shirone",
 		summary:
-			"An Astro blog theme shaped around an M3E component system, expressive content, and resilient client navigation.",
+			"个人博客网站, 基于Astro 的 Shirone 主题构建。",
 		category: "theme",
 		phase: "building",
 		technologies: ["Astro", "Svelte", "TypeScript", "Tailwind CSS"],
 		icon: "material-symbols:deployed-code-outline-rounded",
-		cover: "/assets/projects/shirone.webp",
+		cover: "https://img.eirayun.top/2026/11/1795761606.webp",
 		coverAlt: "Shirone theme homepage preview",
 		featured: true,
-		repository: "https://github.com/LyraVoid/Shirone",
+		repository: "https://github.com/moqa5212/Shirone",
 		year: "2026",
 	},
+
+
 	{
 		key: "folkpatch",
 		title: "FolkPatch",

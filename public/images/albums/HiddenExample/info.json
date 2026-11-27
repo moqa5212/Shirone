@@ -1,10 +1,11 @@
 {
-  "title": "Hidden album",
-  "description": "This album is omitted from the index but remains available by direct URL.",
+  "hidden": false,
+  "title": "私人相册",
+  "description": "家庭和个人的私人相册，包含了珍贵的回忆和照片。",
   "date": "2025-08-28",
   "location": "Private route",
-  "tags": ["hidden", "example"],
-  "layout": "grid",
+  "layout": "masonry",
   "columns": 3,
-  "hidden": true
+  "password": "486597",
+  "passwordHint": "请输入密码以访问私人相册"
 }

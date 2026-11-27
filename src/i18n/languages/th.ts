@@ -123,7 +123,7 @@ export const th: Translation = {
 	[Key.albumsPhotos]: "รูปภาพ",
 	[Key.albumLife]: "ชีวิต",
 	[Key.albumLifeBanner]:
-		"รูปภาพที่รวบรวมอัตโนมัติจากบทความชีวิต การเดินทาง และการถ่ายภาพ",
+		"รูปภาพที่รวบรวมอัตโนมัติจากบทความและโมเมนต์เกี่ยวกับชีวิต การเดินทาง และการถ่ายภาพ",
 	[Key.albumsAllPhotos]: "รูปภาพทั้งหมด",
 	[Key.albumsTimeline]: "ไทม์ไลน์",
 	[Key.albumsRandom]: "สุ่ม",

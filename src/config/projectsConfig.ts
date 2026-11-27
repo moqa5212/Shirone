@@ -27,5 +27,5 @@ export const projectsConfig: ProjectsConfig = withUserConfig("projects", {
 			icon: "material-symbols:android-rounded",
 		},
 	],
-	// disabledKeys: [],
+	disabledKeys: ["folkpatch", "kernelpatch"],
 });

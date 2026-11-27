@@ -122,7 +122,7 @@ export const zh_CN: Translation = {
 	[Key.albumsBack]: "返回相册",
 	[Key.albumsPhotos]: "张照片",
 	[Key.albumLife]: "生活照片",
-	[Key.albumLifeBanner]: "从生活、旅行与摄影文章中自动整理的照片。",
+	[Key.albumLifeBanner]: "从生活、旅行与摄影文章及动态中自动整理的照片。",
 	[Key.albumsAllPhotos]: "全部照片",
 	[Key.albumsTimeline]: "时间线",
 	[Key.albumsRandom]: "随机漫游",

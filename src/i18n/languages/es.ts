@@ -132,7 +132,7 @@ export const es: Translation = {
 	[Key.albumsPhotos]: "fotos",
 	[Key.albumLife]: "Vida",
 	[Key.albumLifeBanner]:
-		"Fotos recopiladas automáticamente de artículos de vida, viajes y fotografía.",
+		"Fotos recopiladas automáticamente de artículos y momentos de vida, viajes y fotografía.",
 	[Key.albumsAllPhotos]: "Todas las fotos",
 	[Key.albumsTimeline]: "Cronología",
 	[Key.albumsRandom]: "Aleatorio",

@@ -5,9 +5,10 @@ import path from "node:path";
 import { albumPhotoSourceKey, isLifeAlbumPost } from "@utils/album-life-rules";
 import { readImageExifTakenAt } from "@utils/album-photo-date";
 import { resolveAsset, resolveImageAsset } from "@utils/asset-utils";
-import { getSortedPosts } from "@utils/content-utils";
-import { getPostUrl } from "@utils/url-utils";
+import { getSortedMoments, getSortedPosts } from "@utils/content-utils";
+import { getPostUrl, url } from "@utils/url-utils";
 import { albumsConfig } from "@/config/albumsConfig";
+import { momentsConfig } from "@/config/momentsConfig";
 import type { AlbumGroup, AlbumPhoto } from "@/types/album";
 
 type RawAlbumImage = {
@@ -110,6 +111,36 @@ export async function collectLifeAlbum({
 		}
 	}
 
+	if (momentsConfig.enable) {
+		const moments = await getSortedMoments();
+		for (const moment of moments) {
+			if (moment.encrypted) continue;
+			const date = moment.published.slice(0, 10);
+
+			for (const image of moment.images) {
+				const key = albumPhotoSourceKey(image.src);
+				if (seen.has(key)) continue;
+				seen.add(key);
+
+				const title = image.alt || moment.location || moment.tags[0] || "Moment";
+				photos.push({
+					id: `life-moment-${createHash("sha1")
+						.update(`${moment.id}:${key}`)
+						.digest("hex")
+						.slice(0, 12)}`,
+					src: image.src,
+					thumbnail: image.thumbnailSrc ?? image.src,
+					alt: image.alt || title,
+					title,
+					tags: unique(moment.tags),
+					location: moment.location || undefined,
+					date,
+					postUrl: url(`/moments/#moment-${moment.id}`),
+				});
+			}
+		}
+	}
+
 	photos.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
 	return {
 		id: "life",
@@ -130,10 +161,11 @@ export function mergeAlbumsWithLife(
 	albums: AlbumGroup[],
 	lifeAlbum?: AlbumGroup,
 ): AlbumGroup[] {
-	if (!lifeAlbum || albums.some((album) => album.id === lifeAlbum.id)) {
-		return [...albums];
-	}
-	return [lifeAlbum, ...albums].sort(
+	const sortedAlbums = [...albums].sort(
 		(a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title),
 	);
+	if (!lifeAlbum) {
+		return sortedAlbums;
+	}
+	return [lifeAlbum, ...sortedAlbums.filter((album) => album.id !== lifeAlbum.id)];
 }

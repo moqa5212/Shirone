@@ -4,7 +4,7 @@ Create one directory per album under `public/images/albums/<id>/`.
 
 ## Generated Life album
 
-`/albums/life/` is generated from the body images of blog posts; it is not a directory under `public/images/albums/`. A post is included when its `category` or `tags` match `albumsConfig.life` in `src/config/albumsConfig.ts`, or when its frontmatter sets `gallery: true`; `gallery: false` forces exclusion. `includeCategories`, `includeTags`, and `excludeCategories` are trimmed and case-insensitive, and encrypted posts are skipped unless `excludeEncrypted` is `false`.
+`/albums/life/` is generated from body images in matching blog posts and attached images in public moments; it is not a directory under `public/images/albums/`. A post is included when its `category` or `tags` match `albumsConfig.life` in `src/config/albumsConfig.ts`. `includeCategories`, `includeTags`, and `excludeCategories` are trimmed and case-insensitive, and encrypted posts are skipped unless `excludeEncrypted` is `false`. All public moments with images are included when `momentsConfig.enable` is on; encrypted moments never contribute images.
 
 Use the optional post-level `location` as the default place for every extracted photo, and `galleryPhotos` to override individual sources:
 

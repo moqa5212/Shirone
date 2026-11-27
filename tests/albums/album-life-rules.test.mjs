@@ -15,18 +15,13 @@ const life = {
 	excludeEncrypted: true,
 };
 
-test("explicit gallery flags win over category and encryption rules", () => {
+test("category and tag rules determine Life inclusion", () => {
+	assert.equal(isLifeAlbumPost({ category: "旅行", tags: [] }, life), true);
 	assert.equal(
-		isLifeAlbumPost(
-			{ category: "教程", tags: [], gallery: true, password: "secret" },
-			life,
-		),
+		isLifeAlbumPost({ category: "Guide", tags: ["travel"] }, life),
 		true,
 	);
-	assert.equal(
-		isLifeAlbumPost({ category: "旅行", tags: [], gallery: false }, life),
-		false,
-	);
+	assert.equal(isLifeAlbumPost({ category: "Guide", tags: [] }, life), false);
 });
 
 test("encrypted and excluded posts stay out of Life by default", () => {

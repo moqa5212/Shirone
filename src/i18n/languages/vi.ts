@@ -133,7 +133,7 @@ export const vi: Translation = {
 	[Key.albumsPhotos]: "ảnh",
 	[Key.albumLife]: "Đời sống",
 	[Key.albumLifeBanner]:
-		"Ảnh được tự động tổng hợp từ các bài viết về đời sống, du lịch và nhiếp ảnh.",
+		"Ảnh được tự động tổng hợp từ các bài viết và khoảnh khắc về đời sống, du lịch và nhiếp ảnh.",
 	[Key.albumsAllPhotos]: "Tất cả ảnh",
 	[Key.albumsTimeline]: "Dòng thời gian",
 	[Key.albumsRandom]: "Ngẫu nhiên",

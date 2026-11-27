@@ -4,7 +4,6 @@ import type { AlbumLifeConfig } from "@/types/albumsConfig";
 export type LifePostMetadata = {
 	category?: string | null;
 	tags?: string[];
-	gallery?: boolean;
 	password?: string;
 };
 
@@ -16,8 +15,6 @@ export function isLifeAlbumPost(
 	data: LifePostMetadata,
 	life: AlbumLifeConfig,
 ): boolean {
-	if (data.gallery === false) return false;
-	if (data.gallery === true) return true;
 	if (life.excludeEncrypted && data.password) return false;
 
 	const category = normalizeText(data.category ?? undefined);

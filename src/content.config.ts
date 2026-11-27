@@ -17,8 +17,6 @@ const postsCollection = defineCollection({
 		image: z.string().optional().default(""),
 		tags: z.array(z.string()).optional().default([]),
 		category: z.string().optional().nullable().default(""),
-		/** Include this post in the generated Life album when true; exclude when false. */
-		gallery: z.boolean().optional(),
 		/** City-level location inherited by body images without an explicit override. */
 		location: z.string().optional().default(""),
 		/** Optional per-image Life album metadata, matched by normalized source path. */

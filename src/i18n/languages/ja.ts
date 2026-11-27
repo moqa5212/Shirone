@@ -127,7 +127,7 @@ export const ja: Translation = {
 	[Key.albumsBack]: "アルバムに戻る",
 	[Key.albumsPhotos]: "枚",
 	[Key.albumLife]: "ライフフォト",
-	[Key.albumLifeBanner]: "生活・旅行・写真の記事から自動で集めた写真。",
+	[Key.albumLifeBanner]: "生活・旅行・写真の記事とモーメントから自動で集めた写真。",
 	[Key.albumsAllPhotos]: "すべての写真",
 	[Key.albumsTimeline]: "タイムライン",
 	[Key.albumsRandom]: "ランダム",

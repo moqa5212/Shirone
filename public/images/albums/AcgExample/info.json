@@ -1,7 +1,7 @@
 {
-  "title": "Some lovely pictures",
-  "description": "A local album scanned from this directory.",
-  "date": "2025-08-01",
+  "title": "壁纸集",
+  "description": "收藏自网络的壁纸集，展示了不同风格和主题的图片。",
+  "date": "2026-11-01",
   "location": "Local archive",
   "tags": ["local", "webp", "example"],
   "layout": "masonry",

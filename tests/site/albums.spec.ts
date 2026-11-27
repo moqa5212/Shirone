@@ -57,13 +57,47 @@ test.describe("相册页响应式滚动", () => {
 	});
 });
 
+test.describe("相册图片灯箱", () => {
+	test("从点击的图片开始显示，而不是始终打开第一张", async ({ page }) => {
+		await page.goto("/albums/AcgExample/", { waitUntil: "networkidle" });
+
+		const photos = page.locator(".album-gallery__item");
+		await expect(photos.nth(1)).toBeVisible();
+		const photoCount = await photos.count();
+		const selectedAlt = await photos.nth(1).locator("img").getAttribute("alt");
+
+		await photos.nth(1).click();
+
+		const dialog = page.locator(".fancybox__container.is-ready");
+		await expect(dialog).toBeVisible({ timeout: 15_000 });
+		await expect(dialog.locator(".f-counter")).toHaveText(`2/${photoCount}`);
+		await expect(
+			dialog.locator(".fancybox__slide.is-selected img:not(.is-clone)"),
+		).toHaveAttribute("alt", selectedAlt ?? "");
+	});
+});
+
 test.describe("Life 生活照片集", () => {
 	test("作为普通相册展示，并提供筛选与时间线", async ({ page }) => {
+		await page.goto("/moments/", { waitUntil: "networkidle" });
+		const sourceMomentPhoto = page.locator(".moment-card__gallery img").first();
+		test.skip(
+			(await sourceMomentPhoto.count()) === 0,
+			"当前没有可验证的公开 Moments 图片",
+		);
+		const momentAlt = await sourceMomentPhoto.getAttribute("alt");
+		const momentPublished = await sourceMomentPhoto
+			.locator("xpath=ancestor::article")
+			.locator("time")
+			.getAttribute("datetime");
+		const momentDate = momentPublished?.slice(0, 10).replaceAll("-", ".");
+
 		await page.goto("/albums/", { waitUntil: "networkidle" });
 
 		const lifeCard = page.locator(".album-card").filter({
 			has: page.getByRole("heading", { name: "生活照片" }),
 		});
+		await expect(page.locator(".album-card").first()).toContainText("生活照片");
 		await expect(lifeCard).toBeVisible();
 		await lifeCard.getByRole("link").click();
 
@@ -72,6 +106,13 @@ test.describe("Life 生活照片集", () => {
 		await expect(page.locator(".album-gallery__item").first()).toBeVisible();
 		await expect(page.locator(".album-gallery__toolbar")).toBeVisible();
 		await expect(page.locator(".album-gallery__meta").first()).toBeVisible();
+		const momentPhoto = page
+			.locator(".album-gallery__item")
+			.filter({ has: page.getByAltText(momentAlt ?? "", { exact: true }) });
+		await expect(momentPhoto).toHaveCount(1);
+		await expect(momentPhoto.locator(".album-gallery__date")).toHaveText(
+			momentDate ?? "",
+		);
 
 		const toolbarBox = await page
 			.locator(".album-gallery__toolbar")

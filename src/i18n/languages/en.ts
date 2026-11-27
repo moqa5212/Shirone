@@ -131,7 +131,7 @@ export const en: Translation = {
 	[Key.albumsPhotos]: "photos",
 	[Key.albumLife]: "Life",
 	[Key.albumLifeBanner]:
-		"Photos collected automatically from life, travel, and photography posts.",
+		"Photos collected automatically from life, travel, and photography posts and moments.",
 	[Key.albumsAllPhotos]: "All photos",
 	[Key.albumsTimeline]: "Timeline",
 	[Key.albumsRandom]: "Shuffle",

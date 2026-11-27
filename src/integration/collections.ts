@@ -19,8 +19,6 @@ export const postSchema: z.ZodType = z.object({
 	image: z.string().optional().default(""),
 	tags: z.array(z.string()).optional().default([]),
 	category: z.string().optional().nullable().default(""),
-	/** Force-include (true) or force-exclude (false) this post in the generated Life album. */
-	gallery: z.boolean().optional(),
 	/** City-level location inherited by body images without a per-image override. */
 	location: z.string().optional().default(""),
 	/** Per-image Life album overrides, matched by normalized source path. */

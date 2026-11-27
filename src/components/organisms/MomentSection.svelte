@@ -230,7 +230,7 @@ onMount(() => {
 	&__search
 		position: relative
 		width: 100%
-		max-width: 32rem
+		max-width: var(--page-search-max-width, 32rem)
 
 		:global(.m3-text-field)
 			width: 100%
