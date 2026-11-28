@@ -1,6 +1,7 @@
 ---
 title: Hexo Butterfly 自定义侧边栏卡片隐藏指南
 published: 2026-06-16
+description: ""
 
 tags:
   - Hexo
@@ -9,10 +10,8 @@ category: 教程
 series: "hexo-guide"
 seriesOrder: 3
 
-abbrlink: 358601f4
-date: 2026-06-16 20:21:13
-cover: https://cdn.jsdelivr.net/gh/moqa5212/EiraGallery@main/imgs/20260617231239539.webp
-
+pinned: false
+draft: false
 ---
 
 Hexo **Butterfly** 主题的侧边栏（Aside）默认会显示博主信息、最新文章、分类等全量卡片。但在“分类”或“标签”等特定页面，继续显示对应卡片会造成信息冗余。本文介绍一种**无痛扩展方案**：无需修改主题源码，利用 Hexo 过滤器脚本在编译时将 CSS 动态注入 HTML，实现通过页面 `Front-matter` 配置自由隐藏指定侧边栏卡片

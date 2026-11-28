@@ -1,15 +1,17 @@
 ---
 title: Hexo 添加独立网页
 published: 2026-06-01
+description: ""
+image: https://img.eirayun.top/2026/11/1795789715.jpeg
 
-tags: [Hexo, Butterfly]
 category: 教程
+tags: [Hexo, Butterfly]
 series: "hexo-guide"
 seriesOrder: 2
 
-abbrlink: dccdbb56
-date: 2026-06-16 20:54:28
-cover: https://cdn.jsdelivr.net/gh/moqa5212/EiraGallery@main/imgs/20260617231220302.webp
+pinned: false
+draft: false
+
 ---
 
 Hexo 默认使用主题渲染页面，但嵌入作品集、特效展示等独立网页时，易引发样式冲突。本文将介绍如何通过配置，让 Hexo 在生成静态文件时直接复制这些文件，跳过主题渲染，从而实现页面的完全独立

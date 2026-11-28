@@ -1,15 +1,15 @@
 ---
 title: 在 Hexo + Butterfly 中渲染 Mermaid 图表
 published: 2026-10-18
+description: ""
 
 tags: [Hexo, Butterfly]
 category: 教程
 series: "hexo-guide"
 seriesOrder: 5
 
-cover: https://images.unsplash.com/photo-1461749280684-dccba630e2f6
-abbrlink: 4111567420
-date: 2026-11-20 00:00:00
+pinned: false
+draft: false
 ---
 
 Mermaid 是一种用文本描述图表的工具，写流程图、时序图、甘特图都不用拖拽画布，直接在 Markdown 里写代码块就行。Butterfly 主题支持通过插件渲染 Mermaid，配置起来也很简单。
